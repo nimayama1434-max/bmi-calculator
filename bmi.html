@@ -1,0 +1,104 @@
+<h1>Free BMI Calculator</h1>
+<p>Calculate your body mass index easily</p>
+<!DOCTYPE html>
+<html>
+<head>
+<title>BMI Calculator</title>
+
+<style>
+body{
+font-family: Arial;
+background:#f2f2f2;
+text-align:center;
+padding-top:50px;
+}
+
+.container{
+background:white;
+padding:30px;
+width:300px;
+margin:auto;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+}
+
+input{
+width:90%;
+padding:10px;
+margin:10px;
+}
+
+button{
+padding:10px 20px;
+background:#28a745;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+h2{
+margin-bottom:20px;
+}
+
+#result{
+margin-top:20px;
+font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>BMI Calculator</h2>
+
+<input type="number" id="weight" placeholder="Weight (kg)">
+
+<input type="number" id="height" placeholder="Height (cm)">
+
+<br>
+
+<button onclick="calculateBMI()">Calculate</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function calculateBMI(){
+
+var weight=document.getElementById("weight").value;
+var height=document.getElementById("height").value;
+
+height=height/100;
+
+var bmi=weight/(height*height);
+
+bmi=bmi.toFixed(2);
+
+var category="";
+
+if(bmi<18.5){
+category="Underweight";
+}
+else if(bmi<25){
+category="Normal weight";
+}
+else if(bmi<30){
+category="Overweight";
+}
+else{
+category="Obese";
+}
+
+document.getElementById("result").innerHTML=
+"Your BMI: "+bmi+"<br>Category: "+category;
+
+}
+
+</script>
+
+</body>
+</html>
